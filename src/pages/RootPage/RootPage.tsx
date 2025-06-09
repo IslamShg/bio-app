@@ -19,17 +19,18 @@ export const RootPage = () => {
 
   return (
     <RootContainer>
-      <Typography variant="h4" component="h1" gutterBottom align="center">
-        Выравнивание аминокислотных последовательностей
-      </Typography>
       <Typography
-        variant="subtitle1"
+        variant="h4"
+        component="h1"
         gutterBottom
         align="center"
-        color="text.secondary"
+        sx={{
+          '@media (max-width: 400px)': {
+            fontSize: '20px'
+          }
+        }}
       >
-        Введите два аминокислотных последовательностей для визуализации
-        выравнивания.
+        Выравнивание аминокислотных последовательностей
       </Typography>
 
       <SequenceForm onSubmit={handleSubmit} />

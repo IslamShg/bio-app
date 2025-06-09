@@ -14,6 +14,7 @@ const SequenceContainer = styled(Box)(({ theme }) => ({
   lineHeight: 1.5,
   wordBreak: 'break-all',
   userSelect: 'text',
+  padding: '0 16px',
   '& .sequence-row': {
     display: 'flex',
     flexWrap: 'wrap',
@@ -24,7 +25,22 @@ const SequenceContainer = styled(Box)(({ theme }) => ({
     padding: '2px 4px',
     borderRadius: '2px',
     minWidth: '1.2em',
-    textAlign: 'center'
+    textAlign: 'center',
+    [theme.breakpoints.down(450)]: {
+      fontSize: '12px'
+    },
+    [theme.breakpoints.down(410)]: {
+      fontSize: '10px'
+    },
+    [theme.breakpoints.down(375)]: {
+      fontSize: '8px'
+    },
+    [theme.breakpoints.down(345)]: {
+      fontSize: '6px'
+    }
+  },
+  [theme.breakpoints.down(450)]: {
+    padding: '0 12px'
   }
 }))
 

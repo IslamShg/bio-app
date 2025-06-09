@@ -42,7 +42,10 @@ export const SequenceForm: React.FC<SequenceFormProps> = ({ onSubmit }) => {
         maxWidth: '600px',
         width: '100%',
         margin: '0 auto',
-        padding: 2
+        padding: 2,
+        '@media (max-width: 400px)': {
+          padding: '8px'
+        }
       }}
     >
       <TextField
@@ -59,6 +62,13 @@ export const SequenceForm: React.FC<SequenceFormProps> = ({ onSubmit }) => {
         })}
         error={!!errors.sequence1}
         helperText={errors.sequence1?.message}
+        sx={{
+          '@media (max-width: 400px)': {
+            '& input': {
+              fontSize: 14
+            }
+          }
+        }}
       />
 
       <TextField
@@ -75,14 +85,31 @@ export const SequenceForm: React.FC<SequenceFormProps> = ({ onSubmit }) => {
         })}
         error={!!errors.sequence2}
         helperText={errors.sequence2?.message}
+        sx={{
+          '@media (max-width: 400px)': {
+            '& input': {
+              fontSize: 14
+            }
+          }
+        }}
       />
 
       {sequence1 && sequence2 && sequence1.length !== sequence2.length && (
-        <Alert severity="error">Последовательности аминокислот должны быть одинаковой длины</Alert>
+        <Alert severity="error">
+          Последовательности аминокислот должны быть одинаковой длины
+        </Alert>
       )}
 
       <Button
         type="submit"
+        sx={{
+          fontSize: '1rem',
+          padding: '12px 24px',
+          '@media (max-width: 400px)': {
+            fontSize: '0.8rem',
+            padding: '8px 16px'
+          }
+        }}
         variant="contained"
         color="primary"
         size="large"
