@@ -8,7 +8,7 @@ export const isValidAminoAcid = (char: string): char is AminoAcid => {
 
 export const validateSequence = (sequence: string): { isValid: boolean; error?: string } => {
   if (!sequence) {
-    return { isValid: false, error: 'Sequence is required' };
+    return { isValid: false, error: 'Данное поле является обязательным' };
   }
 
   const invalidChars = sequence
@@ -18,7 +18,7 @@ export const validateSequence = (sequence: string): { isValid: boolean; error?: 
   if (invalidChars.length > 0) {
     return {
       isValid: false,
-      error: `Invalid characters found: ${invalidChars.join(', ')}. Only Latin letters (A, R, N, D, C, E, Q, G, H, I, L, K, M, F, P, S, T, W, Y, V) and '-' are allowed.`
+      error: `Некорректные символы: ${invalidChars.join(', ')}. Можно вводить только латинские буквы (A, R, N, D, C, E, Q, G, H, I, L, K, M, F, P, S, T, W, Y, V) и '-'.`
     };
   }
 
@@ -39,7 +39,7 @@ export const validateSequences = (seq1: string, seq2: string): { isValid: boolea
   if (seq1.length !== seq2.length) {
     return {
       isValid: false,
-      error: 'Sequences must have the same length'
+      error: 'Последовательности должны быть одинаковой длины'
     };
   }
 

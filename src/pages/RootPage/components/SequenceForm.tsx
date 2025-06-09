@@ -1,7 +1,8 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Box, Button, TextField, Alert } from '@mui/material'
-import { validateSequences } from '../utils/sequenceValidation'
+import { validateSequences } from '../../../utils/sequenceValidation'
+import { useFocusInput } from '../common/hooks/useFocusInput'
 
 interface FormData {
   sequence1: string
@@ -22,6 +23,8 @@ export const SequenceForm: React.FC<SequenceFormProps> = ({ onSubmit }) => {
 
   const sequence1 = watch('sequence1')
   const sequence2 = watch('sequence2')
+
+  const { inputRef } = useFocusInput()
 
   const validateSequencesOnSubmit = (data: FormData) => {
     const validation = validateSequences(data.sequence1, data.sequence2)
@@ -52,6 +55,7 @@ export const SequenceForm: React.FC<SequenceFormProps> = ({ onSubmit }) => {
         label="Первая последовательность"
         variant="outlined"
         fullWidth
+        inputRef={inputRef}
         {...register('sequence1', {
           required: 'Это поле обязательно для заполнения',
           pattern: {

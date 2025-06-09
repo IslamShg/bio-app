@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Typography, Box } from '@mui/material'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { SequenceAlignment } from '../../components/SequenceAlignment'
-import { SequenceForm } from '../../components/SequenceForm'
+import { SequenceAlignment } from './components/SequenceAlignment'
+import { SequenceForm } from './components/SequenceForm'
 import { RootContainer } from './RootPage.styles'
 
 export const RootPage = () => {
@@ -12,9 +12,11 @@ export const RootPage = () => {
     sequence2: string
   } | null>(null)
 
-  const handleSubmit = (data: { sequence1: string; sequence2: string }) => {
-    console.log(data)
-    setSequences(data)
+  const handleSubmit = (sequences: {
+    sequence1: string
+    sequence2: string
+  }) => {
+    setSequences(sequences)
   }
 
   return (
